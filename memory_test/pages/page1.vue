@@ -48,6 +48,10 @@
           items
         })
       },1000)
+    },
+    beforeRouteLeave (to, from, next) {
+    	this.__patch__(this._vnode, this._c('div'))
+    	next()
     }
   }
 </script>

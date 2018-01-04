@@ -13,16 +13,9 @@
 </template>
 <script>
   export default {
-    computed: {
-      tableData () {
-        return this.$store.state.test2.tableData
-      },
-      items () {
-        return this.$store.state.test2.items
-      }
-    },
+    props: ['tableData', 'items'],
     mounted () {
-      this.$store.commit('test2/resetTableData')
+      this.$store.commit('test1/resetTableData')
       setTimeout(() => {
         let tableData = [
           {key: 'x1', a:'a', b:2, c:3, d:4, e: 5},
@@ -43,15 +36,11 @@
           {title: 'd', prop: 'd'},
           {title: 'e', prop: 'e'}
         ]
-        this.$store.commit('test2/setTableData', {
+        this.$store.commit('test1/setTableData', {
           tableData,
           items
         })
       },1000)
-    },
-    beforeRouteLeave (to, from, next) {
-    	this.__patch__(this._vnode, this._c('div'))
-    	next()
     }
   }
 </script>

@@ -13,14 +13,7 @@
 </template>
 <script>
   export default {
-    computed: {
-      tableData () {
-        return this.$store.state.test2.tableData
-      },
-      items () {
-        return this.$store.state.test2.items
-      }
-    },
+    props: ['tableData', 'items'],
     mounted () {
       this.$store.commit('test2/resetTableData')
       setTimeout(() => {
@@ -48,10 +41,6 @@
           items
         })
       },1000)
-    },
-    beforeRouteLeave (to, from, next) {
-    	this.__patch__(this._vnode, this._c('div'))
-    	next()
     }
   }
 </script>
